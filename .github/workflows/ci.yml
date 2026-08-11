@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [Java-25]
+  pull_request:
+    branches: [Java-25]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 25 (compile/test target)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "25"
+      - name: Set up JDK 21 (Gradle runtime)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: gradle
+      - name: Build and test
+        env:
+          JAVA_25_HOME: ${{ env.JAVA_HOME_25_X64 }}
+        run: ./gradlew --no-daemon clean test
