@@ -1,0 +1,23 @@
+[versions]
+jdk = "8"
+springBoot = "2.7.18"
+springDependencyManagement = "1.1.6"
+checkstyle = "9.3"
+pmd = "6.55.0"
+spotbugs = "4.8.6"
+spotbugsPlugin = "6.0.18"
+pitest = "1.15.0"
+pitestJunit5 = "1.2.1"
+dependencyCheck = "10.0.4"
+diffCoverage = "0.9.5"
+jacoco = "0.8.14"
+
+[libraries]
+springBoot-gradlePlugin = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "springBoot" }
+spring-dependencyManagementPlugin = { module = "io.spring.gradle:dependency-management-plugin", version.ref = "springDependencyManagement" }
+spotbugs-gradlePlugin = { module = "com.github.spotbugs.snom:spotbugs-gradle-plugin", version.ref = "spotbugsPlugin" }
+pitest-gradlePlugin = { module = "info.solidsoft.gradle.pitest:gradle-pitest-plugin", version.ref = "pitest" }
+dependencyCheck-gradlePlugin = { module = "org.owasp:dependency-check-gradle", version.ref = "dependencyCheck" }
+diffCoverage-gradlePlugin = { module = "io.github.surpsg:diff-coverage-gradle", version.ref = "diffCoverage" }
+
+[plugins]
